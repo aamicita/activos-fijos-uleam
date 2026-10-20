@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Registrar activo | Gestión de Activos ULEAM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/registrar.css">
+</head>
+<body>
+  <div class="app">
+
+    <aside class="menu">
+      <div class="menu__marca">
+        <div class="menu__logo">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <div>
+          <small>Universidad Laica</small>
+          <strong>Gestión de Activos</strong>
+        </div>
+      </div>
+
+      <nav class="menu__nav">
+        <a class="menu__enlace" href="dashboard.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          Dashboard
+        </a>
+        <a class="menu__enlace" href="activos.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg>
+          Activos
+        </a>
+        <a class="menu__enlace menu__enlace--activo" href="registrar.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          Registrar
+        </a>
+        <a class="menu__enlace" href="reportes.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg>
+          Reportes
+        </a>
+      </nav>
+
+      <div class="menu__perfil">
+        <div class="menu__avatar" id="perfil-avatar">AM</div>
+        <div>
+          <strong id="perfil-nombre">Andrea Mendoza</strong>
+          <small id="perfil-rol">Administradora</small>
+        </div>
+      </div>
+      <a class="menu__enlace" href="index.html" id="cerrar-sesion">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 17l5-5-5-5M15 12H3M15 4h4a2 2 0 012 2v12a2 2 0 01-2 2h-4"/></svg>
+        Cerrar sesión
+      </a>
+    </aside>
+
+    <main class="contenido">
+      <header class="encabezado">
+        <div>
+          <h1>Registrar nuevo activo</h1>
+          <p>Completa la información para incorporar un bien</p>
+        </div>
+        <span class="estado-sistema">Sistema operativo</span>
+      </header>
+
+      <section class="pagina">
+        <form id="form-registro" class="tarjeta" novalidate>
+
+          <div class="formulario__titulo">
+            <h2>Información general</h2>
+            <p>Datos de identificación y clasificación del activo</p>
+          </div>
+
+          <p id="aviso-exito" class="aviso aviso--exito" role="status" hidden></p>
+
+          <div class="formulario-rejilla">
+
+            <div class="campo" id="campo-nombre">
+              <label for="nombre">Nombre del activo</label>
+              <input type="text" id="nombre" placeholder="Ej. Computador portátil" maxlength="80" autocomplete="off">
+              <span class="campo__mensaje" id="mensaje-nombre"></span>
+            </div>
+
+            <div class="campo" id="campo-codigo">
+              <label for="codigo">Código</label>
+              <input type="text" id="codigo" placeholder="Ej. AF-2024-000" maxlength="11" autocomplete="off">
+              <span class="campo__mensaje" id="mensaje-codigo"></span>
+            </div>
+
+            <div class="campo" id="campo-categoria">
+              <label for="categoria">Categoría</label>
+              <select id="categoria"></select>
+              <span class="campo__mensaje" id="mensaje-categoria"></span>
+            </div>
+
+            <div class="campo" id="campo-valor">
+              <label for="valor">Valor</label>
+              <input type="text" id="valor" placeholder="$ 0.00" inputmode="decimal" autocomplete="off">
+              <span class="campo__mensaje" id="mensaje-valor"></span>
+            </div>
+
+            <div class="campo" id="campo-fecha">
+              <label for="fecha">Fecha de adquisición</label>
+              <input type="date" id="fecha">
+              <span class="campo__mensaje" id="mensaje-fecha"></span>
+            </div>
+
+            <div class="campo" id="campo-estado">
+              <label for="estado">Estado</label>
+              <select id="estado"></select>
+              <span class="campo__mensaje" id="mensaje-estado"></span>
+            </div>
+
+            <div class="campo ancho-total" id="campo-responsable">
+              <label for="responsable">Responsable / Departamento</label>
+              <input type="text" id="responsable" placeholder="Nombre o departamento responsable" maxlength="60" autocomplete="off">
+              <span class="campo__mensaje" id="mensaje-responsable"></span>
+            </div>
+
+          </div>
+
+          <div class="formulario__acciones">
+            <button type="button" class="boton" id="boton-cancelar">Cancelar</button>
+            <button type="submit" class="boton boton--primario">Guardar activo</button>
+          </div>
+
+        </form>
+      </section>
+    </main>
+
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/validaciones.js"></script>
+  <script src="js/sesion.js"></script>
+  <script src="js/registrar.js"></script>
+</body>
+</html>

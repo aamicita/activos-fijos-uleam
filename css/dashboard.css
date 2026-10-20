@@ -1,0 +1,70 @@
+/* ==========================================================
+   dashboard.css - Estilos solo del panel principal
+   ========================================================== */
+
+.resumen { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-bottom: 24px; }
+
+.indicador { padding: 22px; }
+.indicador__cabecera { display: flex; justify-content: space-between; align-items: flex-start; }
+.indicador__icono {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  background: var(--gris-fondo);
+  display: grid; place-items: center;
+}
+.indicador__icono svg { width: 18px; height: 18px; }
+.indicador__icono--rojo { background: var(--rojo-suave); color: var(--rojo); }
+.indicador__rotulo { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gris-texto); }
+.indicador__valor { font-size: 34px; font-weight: 700; margin-top: 18px; }
+.indicador__titulo { font-weight: 500; margin-top: 4px; }
+.indicador__detalle { font-size: 12px; color: #8d8d96; margin-top: 8px; }
+
+.paneles { display: grid; grid-template-columns: 1.8fr 1fr; gap: 24px; }
+
+.panel__cabecera { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 24px; }
+.panel__cabecera h2 { font-size: 17px; }
+.panel__cabecera p { font-size: 12px; color: #8d8d96; margin-top: 4px; }
+
+.selector {
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid var(--gris-borde);
+  border-radius: var(--radio-campo);
+  background: var(--blanco);
+  color: var(--gris-texto);
+}
+
+/* Barras por categoría */
+.barras { display: flex; flex-direction: column; gap: 18px; }
+.barra { display: grid; grid-template-columns: 110px 1fr 40px; align-items: center; gap: 16px; font-size: 12px; font-weight: 700; }
+.barra__pista { height: 8px; border-radius: 999px; background: #efeff1; overflow: hidden; }
+.barra__relleno { height: 100%; border-radius: 999px; background: var(--rojo); }
+.barra__cantidad { text-align: right; }
+
+/* Actividad reciente */
+.actividad { list-style: none; margin: 0; padding: 0; }
+.actividad li {
+  display: grid;
+  grid-template-columns: 12px 1fr auto;
+  gap: 12px;
+  align-items: start;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--gris-borde);
+}
+.actividad li:last-child { border-bottom: 0; }
+.actividad__punto { width: 8px; height: 8px; border-radius: 50%; background: #a3a3ab; margin-top: 7px; }
+.actividad__punto--baja { background: var(--rojo); }
+.actividad strong { display: block; font-weight: 500; }
+.actividad small { color: #8d8d96; }
+.actividad__fecha { font-size: 12px; color: #8d8d96; }
+
+.vacio { color: #8d8d96; font-size: 14px; }
+
+@media (max-width: 1100px) {
+  .resumen { grid-template-columns: repeat(2, 1fr); }
+  .paneles { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .resumen { grid-template-columns: 1fr; }
+  .barra { grid-template-columns: 90px 1fr 32px; }
+}

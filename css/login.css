@@ -1,0 +1,101 @@
+/* ==========================================================
+   login.css - Estilos solo de la pantalla de inicio de sesión
+   (usa las variables y componentes de base.css)
+   ========================================================== */
+
+.login { display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh; }
+
+/* Panel izquierdo ----------------------------------------- */
+.login__marca {
+  position: relative;
+  overflow: hidden;
+  background: var(--negro);
+  color: var(--blanco);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px;
+}
+
+.login__anillo {
+  position: absolute;
+  top: -60px;
+  right: 8%;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  border: 70px solid #2a0a0e;
+}
+
+.login__marca .menu__marca { position: relative; padding: 0; }
+
+.login__mensaje { position: relative; max-width: 520px; }
+.login__etiqueta {
+  color: var(--rojo);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.login__mensaje h2 { font-size: 46px; line-height: 1.1; margin-bottom: 22px; }
+.login__mensaje p:last-child { color: #a3a3ab; font-size: 18px; line-height: 1.6; }
+
+.login__pie { position: relative; color: #6b6b73; font-size: 12px; }
+
+/* Panel derecho ------------------------------------------- */
+.login__formulario {
+  display: grid;
+  place-items: center;
+  padding: 32px;
+  background: var(--gris-fondo);
+}
+
+.login__caja { width: 100%; max-width: 448px; display: flex; flex-direction: column; gap: 20px; }
+
+.login__saludo {
+  color: var(--rojo);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+.login__caja h1 { font-size: 30px; margin-top: -12px; }
+.login__ayuda { color: var(--gris-texto); font-size: 14px; margin-top: -12px; }
+
+.login__error {
+  padding: 12px 14px;
+  border-radius: var(--radio-campo);
+  background: var(--rojo-suave);
+  color: var(--rojo);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Campos con ícono */
+.campo__entrada { position: relative; }
+.campo__entrada svg {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  width: 18px;
+  height: 18px;
+  transform: translateY(-50%);
+  color: #8d8d96;
+  pointer-events: none;
+}
+.campo__entrada input { width: 100%; padding-left: 46px; }
+
+.login__opciones { display: flex; justify-content: space-between; align-items: center; font-size: 14px; }
+.login__recordar { display: flex; align-items: center; gap: 8px; color: var(--gris-texto); cursor: pointer; }
+.login__opciones a { color: var(--rojo); }
+.login__opciones a:hover { text-decoration: underline; }
+
+.login__boton { width: 100%; height: 52px; box-shadow: 0 4px 12px rgba(228, 0, 15, 0.25); }
+.login__aviso { text-align: center; font-size: 12px; color: #8d8d96; }
+
+/* Pantallas pequeñas: se oculta el panel izquierdo --------- */
+@media (max-width: 900px) {
+  .login { grid-template-columns: 1fr; }
+  .login__marca { display: none; }
+}
