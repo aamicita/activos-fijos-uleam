@@ -1,0 +1,245 @@
+/* ==========================================================
+   base.css - Estilos compartidos del Sistema de Gestión de
+   Activos Fijos de la ULEAM. Todas las pantallas lo usan.
+   ========================================================== */
+
+/* 1. Variables (colores, tipografía, medidas) ------------- */
+:root {
+  --rojo: #e4000f;
+  --rojo-suave: #fdecee;
+  --negro: #0a0a0b;
+  --gris-texto: #6b6b73;
+  --gris-borde: #e6e6ea;
+  --gris-fondo: #f4f4f5;
+  --blanco: #ffffff;
+  --verde: #12b76a;
+
+  --fuente: "DM Sans", "Segoe UI", Arial, sans-serif;
+  --radio: 14px;
+  --radio-campo: 10px;
+  --ancho-menu: 234px;
+  --sombra: 0 1px 3px rgba(10, 10, 11, 0.08);
+}
+
+/* 2. Reinicio básico --------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--fuente);
+  font-size: 15px;
+  color: var(--negro);
+  background: var(--gris-fondo);
+}
+
+h1, h2, h3, p { margin: 0; }
+a { color: inherit; text-decoration: none; }
+button, input, select { font: inherit; }
+
+:focus-visible {
+  outline: 2px solid var(--rojo);
+  outline-offset: 2px;
+}
+
+/* 3. Estructura general: menú lateral + contenido --------- */
+.app { display: flex; min-height: 100vh; }
+
+.menu {
+  width: var(--ancho-menu);
+  background: var(--negro);
+  color: #b4b4bc;
+  display: flex;
+  flex-direction: column;
+  padding: 16px 12px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.menu__marca {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 4px 8px 24px;
+  color: var(--blanco);
+}
+.menu__logo {
+  width: 40px; height: 40px;
+  background: var(--rojo);
+  border-radius: 10px;
+  display: grid; place-items: center;
+}
+.menu__marca small {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #8d8d96;
+}
+.menu__marca strong { font-size: 16px; }
+
+.menu__nav { display: flex; flex-direction: column; gap: 6px; flex: 1; }
+
+.menu__enlace {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 14px;
+  border-radius: var(--radio-campo);
+  color: #b4b4bc;
+}
+.menu__enlace:hover { background: #17171a; color: var(--blanco); }
+.menu__enlace--activo,
+.menu__enlace--activo:hover { background: var(--rojo); color: var(--blanco); }
+.menu__enlace svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+.menu__perfil {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 8px;
+  border-top: 1px solid #222226;
+  color: var(--blanco);
+  font-size: 13px;
+}
+.menu__avatar {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: #26262b;
+  display: grid; place-items: center;
+  font-weight: 700;
+}
+.menu__perfil small { display: block; color: #8d8d96; }
+
+.contenido { flex: 1; min-width: 0; }
+
+.encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 32px;
+  background: var(--blanco);
+  border-bottom: 1px solid var(--gris-borde);
+}
+.encabezado h1 { font-size: 24px; }
+.encabezado p { color: var(--gris-texto); margin-top: 4px; }
+
+.estado-sistema {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border: 1px solid var(--gris-borde);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.estado-sistema::before {
+  content: "";
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--verde);
+}
+
+.pagina { padding: 32px; }
+
+/* 4. Tarjetas ---------------------------------------------- */
+.tarjeta {
+  background: var(--blanco);
+  border: 1px solid var(--gris-borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  padding: 24px;
+}
+
+/* 5. Botones ----------------------------------------------- */
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 46px;
+  padding: 0 22px;
+  border-radius: var(--radio-campo);
+  border: 1px solid var(--gris-borde);
+  background: var(--blanco);
+  color: var(--negro);
+  font-weight: 600;
+  cursor: pointer;
+}
+.boton:hover { background: var(--gris-fondo); }
+.boton--primario { background: var(--rojo); border-color: var(--rojo); color: var(--blanco); }
+.boton--primario:hover { background: #c4000d; }
+
+/* 6. Formularios ------------------------------------------- */
+.campo { display: flex; flex-direction: column; gap: 8px; }
+.campo label { font-size: 12px; font-weight: 700; }
+
+.campo input,
+.campo select {
+  height: 50px;
+  padding: 0 16px;
+  border: 1px solid var(--gris-borde);
+  border-radius: var(--radio-campo);
+  background: var(--blanco);
+  color: var(--negro);
+}
+.campo input::placeholder { color: #a3a3ab; }
+
+/* Estado de error (lo activaremos desde JavaScript) */
+.campo--error input,
+.campo--error select { border-color: var(--rojo); }
+.campo__mensaje { display: none; font-size: 12px; color: var(--rojo); }
+.campo--error .campo__mensaje { display: block; }
+
+.formulario-rejilla { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 24px; }
+.formulario-rejilla .ancho-total { grid-column: 1 / -1; }
+
+/* 7. Tablas y etiquetas de estado -------------------------- */
+.tabla-contenedor { overflow-x: auto; }
+.tabla { width: 100%; border-collapse: collapse; }
+.tabla th {
+  text-align: left;
+  padding: 14px 20px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gris-texto);
+  background: #fafafb;
+}
+.tabla td { padding: 18px 20px; border-top: 1px solid var(--gris-borde); }
+
+.etiqueta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  background: #efeff1;
+}
+.etiqueta::before {
+  content: "";
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.etiqueta--bueno { color: #067647; background: #ecfdf3; }
+.etiqueta--mantenimiento { color: #4a4a52; background: #efeff1; }
+.etiqueta--baja { color: var(--rojo); background: var(--rojo-suave); }
+
+/* 8. Pantallas pequeñas ------------------------------------ */
+@media (max-width: 900px) {
+  .app { flex-direction: column; }
+  .menu { width: 100%; height: auto; position: static; }
+  .menu__nav { flex-direction: row; flex-wrap: wrap; }
+  .menu__perfil { display: none; }
+  .encabezado, .pagina { padding: 16px; }
+  .formulario-rejilla { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
