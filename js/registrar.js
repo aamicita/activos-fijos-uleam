@@ -95,7 +95,7 @@ formulario.addEventListener("submit", (evento) => {
 
   limpiarFormulario();
   avisoExito.innerHTML = `Activo <strong>${Utiles.escapar(activo.codigo)}</strong> registrado correctamente. ` +
-    `<a href="dashboard.html">Ver panel principal</a>`;
+    `<a href="activos.html">Ver listado de activos</a>`;
   avisoExito.hidden = false;
   avisoExito.scrollIntoView({ behavior: "smooth", block: "nearest" });
 });
@@ -106,6 +106,5 @@ function limpiarFormulario() {
   campos.forEach((campo) => mostrarError(campo.id, ""));
 }
 document.getElementById("boton-cancelar").addEventListener("click", () => {
-  limpiarFormulario();
-  avisoExito.hidden = true;
+  window.location.href = "activos.html";
 });
