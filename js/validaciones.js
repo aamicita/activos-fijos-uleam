@@ -92,5 +92,11 @@ const Validaciones = {
       return "Entre 3 y 60 caracteres, solo letras, espacios y signos simples.";
     }
     return "";
+  },
+
+  /* ---- Reportes: la fecha "Desde" no puede ser posterior a "Hasta" ---- */
+  rangoFechas(desde, hasta) {
+    if (desde > hasta) return "La fecha \"Desde\" no puede ser posterior a \"Hasta\".";
+    return "";
   }
 };

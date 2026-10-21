@@ -1,0 +1,62 @@
+/* ==========================================================
+   reportes.css - Estilos solo de la pantalla de Reportes
+   ========================================================== */
+
+.aviso {
+  padding: 12px 14px;
+  margin-bottom: 20px;
+  border-radius: var(--radio-campo);
+  font-size: 14px;
+  font-weight: 500;
+  background: var(--rojo-suave);
+  color: var(--rojo);
+}
+.aviso--exito { background: #ecfdf3; color: #067647; }
+
+/* Tarjeta de filtros: dos fechas y dos botones en una fila */
+.filtros {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto auto;
+  gap: 16px;
+  align-items: start;
+  margin-bottom: 24px;
+}
+.filtros .campo input { width: 100%; }
+.filtros .boton { margin-top: 22px; height: 50px; } /* alinea con los campos */
+
+/* Historial */
+.tarjeta--tabla { padding: 0; overflow: hidden; }
+
+.historial__cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 22px 24px 18px;
+}
+.historial__cabecera h2 { font-size: 17px; }
+.historial__cabecera p { font-size: 12px; color: #8d8d96; margin-top: 4px; }
+
+.periodo {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #efeff1;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.tabla td.fecha { color: var(--gris-texto); white-space: nowrap; }
+.tabla td.activo { font-weight: 700; }
+.tabla td.motivo { color: var(--gris-texto); }
+.tabla__vacia { text-align: center; color: #8d8d96; padding: 40px 20px; }
+
+.etiqueta--alta { color: #4a4a52; background: #efeff1; }
+
+@media (max-width: 800px) {
+  .filtros { grid-template-columns: 1fr 1fr; }
+  .filtros .boton { margin-top: 0; }
+}
+@media (max-width: 500px) {
+  .filtros { grid-template-columns: 1fr; }
+}
